@@ -13,3 +13,7 @@ article {
   border: solid red 2px;
   padding: 5%;
 }
+
+.valgt {
+  background-color: red;
+}

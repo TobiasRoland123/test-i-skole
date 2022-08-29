@@ -9,10 +9,18 @@ const options = {
 
 document.addEventListener("DOMContentLoaded", start);
 let personer;
-let filter = "ja";
+let filter = "alle";
 
 function start() {
+  const filterKnapper = document.querySelectorAll("nav button");
+  filterKnapper.forEach((knap) => knap.addEventListener("click", filtrerPersoner));
   hentData();
+}
+
+function filtrerPersoner() {
+  filter = this.dataset.troende;
+  console.log(filter);
+  vis();
 }
 
 async function hentData() {
@@ -27,11 +35,11 @@ async function hentData() {
 
 function vis() {
   // console.log(json);
+  main.textContent = "";
   personer.forEach((person) => {
-    if (filter == person.troende) {
+    if (filter == person.troende || filter == "alle") {
       const klon = template.cloneNode(true);
-      console.log("KLON", klon);
-      console.log("person.efternavn", person.efternavn);
+
       klon.querySelector(".fornavn").textContent = person.efternavn;
       klon.querySelector("img").src = "billeder/faces/" + person.billede;
       klon.querySelector(".titel").textContent = person.titel;
