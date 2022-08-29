@@ -1,0 +1,25 @@
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2%;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5%;
+}
+
+img {
+  max-width: 100%;
+}
+
+article {
+  border-radius: 7%;
+  border: solid red 2px;
+  padding: 5%;
+}
+
+.valgt {
+  background-color: red;
+}
